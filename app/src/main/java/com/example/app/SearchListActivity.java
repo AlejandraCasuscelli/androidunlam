@@ -21,7 +21,6 @@ public class SearchListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_list);
         ButterKnife.bind(this);
-//        String textoBuscar = getIntent().getExtras().getString("textoBuscar");
         textoBuscado.setText(getIntent().getExtras().getString("textoBuscar"));
     }
 
