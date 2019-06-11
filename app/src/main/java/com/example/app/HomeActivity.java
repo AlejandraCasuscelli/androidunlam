@@ -7,26 +7,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class HomeActivity extends AppCompatActivity {
 
+    @BindView(R.id.textoBuscar)
     EditText textoBuscar;
-    Button btnBuscar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        ButterKnife.bind(this);
+    }
 
-        textoBuscar = findViewById(R.id.textoBuscar);
-        btnBuscar = findViewById(R.id.btnBuscar);
-
-        btnBuscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, SearchListActivity.class);
-                intent.putExtra("textoBuscar", textoBuscar.getText().toString());
-                startActivity(intent);
-            }
-        });
+    @OnClick(R.id.btnBuscar)
+    public void clickEnBtnBuscar(){
+        Intent intent = new Intent(HomeActivity.this, SearchListActivity.class);
+        intent.putExtra("textoBuscar", textoBuscar.getText().toString());
+        startActivity(intent);
     }
 }
