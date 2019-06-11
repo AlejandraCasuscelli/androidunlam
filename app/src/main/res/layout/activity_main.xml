@@ -13,19 +13,18 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/contenedorfotos"
             android:padding="10dp"
             android:background="#fff">
             <ImageView
-                android:id="@+id/foto"
-                android:layout_width="wrap_content"
+                android:id="@+id/fotoProducto"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_centerInParent="true"
-                android:src="@drawable/zapatilla"
                 android:scaleType="centerCrop"
                 />
 
@@ -33,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/cantidadfotos"
-                android:layout_alignBottom="@+id/foto"
+                android:layout_alignBottom="@+id/fotoProducto"
                 android:background="#34243324"
                 android:text="10 fotos" />
         </RelativeLayout>
