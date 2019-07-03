@@ -4,296 +4,307 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".DetalleProductoActivity"
     android:background="#f1f1f1">
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/contenedorfotos"
-            android:padding="10dp"
-            android:background="#fff">
-            <ImageView
-                android:id="@+id/fotoProducto"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
-                android:scaleType="centerCrop"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/cantidadfotos"
-                android:layout_alignBottom="@+id/fotoProducto"
-                android:background="#34243324"
-                android:text="10 fotos" />
-        </RelativeLayout>
-        <LinearLayout
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/loading"
+            style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:layout_centerHorizontal="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/contenedordetalles"
             android:orientation="vertical"
-            android:padding="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/vendidos"
-                android:text="Nuevo - 8 vendidos"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/titulo"
-                android:text="Zapatillas Seeley Black adidas Originals Tienda Oficial"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/precio"
-                android:text="$1995"
-                android:textSize="25dp"
-                android:paddingTop="5dp"
-                android:textColor="#000000"/>
-
+            android:id="@+id/contenedorDetalle"
+            android:visibility="visible">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingLeft="10dp"
-                android:id="@+id/layoutPagoCuotas">
-
+                android:id="@+id/contenedorfotos"
+                android:padding="10dp"
+                android:background="#fff">
                 <ImageView
-                    android:id="@+id/iconopago"
-                    android:layout_width="30dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/tarjeta" />
-                <LinearLayout
+                    android:id="@+id/fotoProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    />
+
+                <TextView
+                    android:id="@+id/cantidadfotos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_toRightOf="@+id/iconopago"
-                    android:paddingLeft="20dp"
-                    android:layout_alignTop="@+id/iconopago"
-                    android:layout_alignBottom="@+id/iconopago"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tituloServicioPago"
-                        android:text="Pagá en hasta 12 cuotas"
-                        android:textColor="#000000"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textoCuotasTarjeta"
-                        android:text="Con tu tarjeta tenes este y muchos mas beneficios!"
-                        android:paddingBottom="10dp"/>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@android:color/darker_gray"/>
-                </LinearLayout>
+                    android:background="#34243324"
+                    android:text="10 fotos" />
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingLeft="10dp"
-                android:id="@+id/layoutEnvio">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/contenedordetalles"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vendidos"
+                    android:text="Nuevo - 8 vendidos"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titulo"
+                    android:text="Zapatillas Seeley Black adidas Originals Tienda Oficial"
+                    android:textStyle="bold"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/precio"
+                    android:text="$1995"
+                    android:textSize="25dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#000000"/>
 
-                <ImageView
-                    android:id="@+id/iconoenvio"
-                    android:layout_width="30dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/envio" />
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_toRightOf="@+id/iconoenvio"
-                    android:paddingLeft="20dp"
-                    android:layout_alignTop="@+id/iconoenvio"
-                    android:layout_alignBottom="@+id/iconoenvio"
-                    android:gravity="center_vertical">
-                    <TextView
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/layoutPagoCuotas">
+
+                    <ImageView
+                        android:id="@+id/iconopago"
+                        android:layout_width="30dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/tarjeta" />
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tituloServicioEnvio"
-                        android:text="Envio $167,99"
-                        android:textColor="#000000"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Llega a la sucursal entre el 16 y el 17 de mayo."
-                        android:id="@+id/textoTiempoEnvio"
-                        android:paddingBottom="10dp"/>
+                        android:orientation="vertical"
+                        android:layout_toRightOf="@+id/iconopago"
+                        android:paddingLeft="20dp"
+                        android:layout_alignTop="@+id/iconopago"
+                        android:layout_alignBottom="@+id/iconopago"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tituloServicioPago"
+                            android:text="Pagá en hasta 12 cuotas"
+                            android:textColor="#000000"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textoCuotasTarjeta"
+                            android:text="Con tu tarjeta tenes este y muchos mas beneficios!"
+                            android:paddingBottom="10dp"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@android:color/darker_gray"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingTop="10dp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--android:id="@+id/layoutEnvio">-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@android:color/darker_gray"/>
-                </LinearLayout>
-            </RelativeLayout>
+                    <!--<ImageView-->
+                        <!--android:id="@+id/iconoenvio"-->
+                        <!--android:layout_width="30dp"-->
+                        <!--android:layout_height="70dp"-->
+                        <!--android:src="@drawable/envio" />-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_toRightOf="@+id/iconoenvio"-->
+                        <!--android:paddingLeft="20dp"-->
+                        <!--android:layout_alignTop="@+id/iconoenvio"-->
+                        <!--android:layout_alignBottom="@+id/iconoenvio"-->
+                        <!--android:gravity="center_vertical">-->
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:id="@+id/tituloServicioEnvio"-->
+                            <!--android:text="Envio $167,99"-->
+                            <!--android:textColor="#000000"/>-->
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="Llega a la sucursal entre el 16 y el 17 de mayo."-->
+                            <!--android:id="@+id/textoTiempoEnvio"-->
+                            <!--android:paddingBottom="10dp"/>-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingLeft="10dp"
-                android:id="@+id/layoutEnvioGratis">
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="1dp"-->
+                            <!--android:background="@android:color/darker_gray"/>-->
+                    <!--</LinearLayout>-->
+                <!--</RelativeLayout>-->
 
-                <ImageView
-                    android:id="@+id/iconoenviogratis"
-                    android:layout_width="30dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/enviogratis" />
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_toRightOf="@+id/iconoenviogratis"
-                    android:paddingLeft="20dp"
-                    android:layout_alignTop="@+id/iconoenviogratis"
-                    android:layout_alignBottom="@+id/iconoenviogratis"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tituloServicioEnvioGratis"
-                        android:text="Envío Gratis"
-                        android:textColor="#63A86B"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textoTiempoEnvioGratis"
-                        android:text="Llega a la sucursal entre el 16 y el 17 de mayo."
-                        android:paddingBottom="10dp"/>
-                    <View
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/layoutEnvioGratis">
+
+                    <ImageView
+                        android:id="@+id/iconoenviogratis"
+                        android:layout_width="30dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/enviogratis" />
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@android:color/darker_gray"/>
-                </LinearLayout>
-            </RelativeLayout>
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_toRightOf="@+id/iconoenviogratis"
+                        android:paddingLeft="20dp"
+                        android:layout_alignTop="@+id/iconoenviogratis"
+                        android:layout_alignBottom="@+id/iconoenviogratis"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tituloServicioEnvioGratis"
+                            android:text="Envío Gratis"
+                            android:textColor="#63A86B"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textoTiempoEnvioGratis"
+                            android:text="Llega a la sucursal entre el 16 y el 17 de mayo."
+                            android:paddingBottom="10dp"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@android:color/darker_gray"/>
+                    </LinearLayout>
+                </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingLeft="10dp"
-                android:id="@+id/layoutDevolucionGratis">
-
-                <ImageView
-                    android:id="@+id/iconodevoluciongratis"
-                    android:layout_width="30dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/devolucion" />
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_toRightOf="@+id/iconodevoluciongratis"
-                    android:paddingLeft="20dp"
-                    android:layout_alignTop="@+id/iconodevoluciongratis"
-                    android:layout_alignBottom="@+id/iconodevoluciongratis"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tituloServicioDevolucionGratis"
-                        android:text="Devolución express gratis"
-                        android:textColor="#63A86B"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tenes 15 días desde que lo recibis"
-                        android:paddingBottom="10dp"/>
-                    <View
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/layoutDevolucionGratis">
+
+                    <ImageView
+                        android:id="@+id/iconodevoluciongratis"
+                        android:layout_width="30dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/devolucion" />
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_toRightOf="@+id/iconodevoluciongratis"
+                        android:paddingLeft="20dp"
+                        android:layout_alignTop="@+id/iconodevoluciongratis"
+                        android:layout_alignBottom="@+id/iconodevoluciongratis"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tituloServicioDevolucionGratis"
+                            android:text="Devolución express gratis"
+                            android:textColor="#63A86B"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tenes 15 días desde que lo recibis"
+                            android:paddingBottom="10dp"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@android:color/darker_gray"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#fff"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/layoutCantidad">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/stock"
+                        android:text="Cantidad: 1"
+                        android:gravity="center|left"
+                        android:paddingLeft="10dp"/>
                 </LinearLayout>
-            </RelativeLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/btnComprar"
+                    android:layout_marginTop="20dp"
+                    android:background="#116ad8"
+                    android:text="Comprar"
+                    android:textColor="#fff"
+                    android:layout_marginBottom="10dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/botonFavoritos"
+                    android:background="#fff"
+                    android:text="Favoritos"
+                    android:textColor="#116ad8"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="#fff"
-                android:layout_marginTop="20dp"
-                android:id="@+id/layoutCantidad">
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutGarantia"
+                android:orientation="vertical"
+                android:padding="10dp">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/textoCantidad"
-                    android:text="Cantidad: 1"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"/>
+                    android:text="Garantía"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Garantía del vendedor"
+                    android:textColor="#000000"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textoGarantia"
+                    android:text="12 MESES"
+                    android:gravity="center|left"/>
             </LinearLayout>
 
-            <Button
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/btnComprar"
-                android:layout_marginTop="20dp"
-                android:background="#116ad8"
-                android:text="Comprar"
-                android:textColor="#fff"
-                android:layout_marginBottom="10dp"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/botonFavoritos"
-                android:background="#fff"
-                android:text="Favoritos"
-                android:textColor="#116ad8"/>
-
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
         </LinearLayout>
+    </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/layoutGarantia"
-            android:orientation="vertical"
-            android:padding="10dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Garantía"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:layout_marginBottom="10dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Garantía del vendedor"
-                android:textColor="#000000"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/textoGarantia"
-                android:text="12 MESES"
-                android:gravity="center|left"/>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"/>
-    </LinearLayout>
 
 
 </ScrollView>
