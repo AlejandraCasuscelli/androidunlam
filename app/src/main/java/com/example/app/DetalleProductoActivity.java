@@ -55,11 +55,11 @@ public class DetalleProductoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        CargarDetalleDeProducto(this);
+        CargarDetalleDeProducto(this, getIntent().getExtras().getString("idproducto"));
     }
 
-    private void CargarDetalleDeProducto(final Context context){
-        Api.Api.obtenerArticulo("MLA643261465", new Callback<Producto>() {
+    private void CargarDetalleDeProducto(final Context context, String idProducto){
+        Api.Api.obtenerArticulo(idProducto, new Callback<Producto>() {
         @Override
         public void onResponse(Call<Producto> call, Response<Producto> response) {
             prod = response.body();
@@ -88,16 +88,4 @@ public class DetalleProductoActivity extends AppCompatActivity {
         }
     });
     }
-//     Api.Api.obtenerArticulo("MLA643261465", new Callback<Producto>() {
-//        @Override
-//        public void onResponse(Call<Producto> call, Response<Producto> response) {
-//            prod = response.body();
-//            String saraza = prod.getId();
-//        }
-//
-//        @Override
-//        public void onFailure(Call<Producto> call, Throwable t) {
-//            Log.e("Log", "error");
-//        }
-//    });
 }

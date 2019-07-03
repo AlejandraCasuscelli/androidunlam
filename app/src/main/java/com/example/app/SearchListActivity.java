@@ -27,6 +27,7 @@ public class SearchListActivity extends AppCompatActivity {
     @OnClick(R.id.btnDetalle)
     public void ClickEnIrADetalle(){
         Intent intent = new Intent(SearchListActivity.this, DetalleProductoActivity.class);
+        intent.putExtra("idproducto","MLA643261465");
         startActivity(intent);
     }
 }
