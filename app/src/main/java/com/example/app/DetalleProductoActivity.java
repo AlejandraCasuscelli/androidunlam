@@ -72,7 +72,7 @@ public class DetalleProductoActivity extends AppCompatActivity {
                 vendidos.setText(condicion + " - " + prod.getVendidos().toString() + " vendidos");
                 cantidadfotos.setText(cantidad.toString() + " fotos");
                 titulo.setText(prod.getTitulo());
-                precio.setText(prod.getPrecio().toString());
+                precio.setText("$ " + prod.getPrecio().toString());
                 stock.setText("Cantidad: " + prod.getStock().toString());
                 textoGarantia.setText(prod.getGarantia());
                 Picasso.with(context).load(prod.getImagenes().get(0).getUrl()).into(fotoProducto);

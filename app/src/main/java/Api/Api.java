@@ -2,6 +2,7 @@ package Api;
 
 import com.google.gson.Gson;
 
+import Modelo.Busqueda;
 import Modelo.Producto;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,7 +22,11 @@ public class Api {
     }
 
     public static void obtenerArticulo(String idArticulo, Callback<Producto> callback){
-        Call<Producto> call = getApi().getProducto(idArticulo);
-        call.enqueue(callback);
+        getApi().getProducto(idArticulo).enqueue(callback);
     }
+
+    public static void obtenerListadoProductos(String itemBusqueda, Callback<Busqueda> callback){
+        getApi().getListadoProductos(itemBusqueda).enqueue(callback);
+    }
+
 }

@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchListActivity"
-    android:orientation="vertical"
-    android:background="#88d83f"
-    android:gravity="center">
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/contenedorTituloBusqueda"
+        android:background="#fff128"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textoBuscado"
+            android:text="ProductoBuscado"
+            android:textColor="#000000"
+            android:textSize="15sp"/>
+    </LinearLayout>
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/productoerror"
+        android:text="No existen productos."
+        android:layout_below="@+id/contenedorTituloBusqueda"
+        android:paddingTop="20sp"
+        android:gravity="center_horizontal"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textoBuscado"
-        android:text="asdsad"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:paddingBottom="20dp"/>
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnDetalle"
-        android:text="Ir A Detalle"/>
-</LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/contenedorTituloBusqueda"/>
+</RelativeLayout>

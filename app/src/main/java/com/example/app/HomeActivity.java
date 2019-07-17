@@ -32,6 +32,8 @@ public class HomeActivity extends AppCompatActivity {
     @OnClick(R.id.btnBuscar)
     public void clickEnBtnBuscar(){
         Intent intent = new Intent(HomeActivity.this, SearchListActivity.class);
+        if(textoBuscar.getText().toString().isEmpty())
+            return;
         intent.putExtra("textoBuscar", textoBuscar.getText().toString());
         startActivity(intent);
     }

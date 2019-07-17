@@ -29,6 +29,9 @@ public class Producto {
     @SerializedName("price")
     private Double precio;
 
+    @SerializedName("thumbnail")
+    private String urlImagenMiniatura;
+
     public String getId() {
         return id;
     }
@@ -91,5 +94,13 @@ public class Producto {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public String getUrlImagenMiniatura() {
+        return urlImagenMiniatura;
+    }
+
+    public void setUrlImagenMiniatura(String urlImagenMiniatura) {
+        this.urlImagenMiniatura = urlImagenMiniatura;
     }
 }
