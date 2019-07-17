@@ -10,9 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.app.DetalleProductoActivity;
-import com.example.app.R;
-import com.example.app.SearchListActivity;
+import com.alejandra.app.DetalleProductoActivity;
+import com.alejandra.app.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

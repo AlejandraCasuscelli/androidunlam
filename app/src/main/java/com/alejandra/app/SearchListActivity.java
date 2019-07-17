@@ -1,13 +1,10 @@
-package com.example.app;
+package com.alejandra.app;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,7 +15,6 @@ import Modelo.Busqueda;
 import Modelo.Producto;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,14 +54,14 @@ public class SearchListActivity extends AppCompatActivity {
     }
 
     public void CargarBusqueda(String itemBusqueda) {
-
+        productoerror.setVisibility(View.GONE);
         Api.Api.obtenerListadoProductos(itemBusqueda, new Callback<Busqueda>() {
 
             @Override
             public void onResponse(Call<Busqueda> call, Response<Busqueda> response) {
                 if (response.isSuccessful()) {
                     Busqueda productos = response.body();
-                    if(productos != null){
+                    if(productos != null && productos.getProductos().size()!= 0){
                         ConfigurarRecyclerView(productos.getProductos());
                     } else {
                         productoerror.setVisibility(View.VISIBLE);
@@ -83,8 +79,6 @@ public class SearchListActivity extends AppCompatActivity {
                 productoerror.setVisibility(View.VISIBLE);
                 loading.setVisibility(View.GONE);
             }
-
-
         });
 
     }

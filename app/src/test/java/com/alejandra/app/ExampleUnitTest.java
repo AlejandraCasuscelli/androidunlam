@@ -1,4 +1,4 @@
-package com.example.app;
+package com.alejandra.app;
 
 import org.junit.Test;
 

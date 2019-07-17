@@ -28,8 +28,7 @@
         android:text="No existen productos."
         android:layout_below="@+id/contenedorTituloBusqueda"
         android:paddingTop="20sp"
-        android:gravity="center_horizontal"
-        android:visibility="gone"/>
+        android:gravity="center_horizontal" />
 
     <ProgressBar
         android:id="@+id/loading"

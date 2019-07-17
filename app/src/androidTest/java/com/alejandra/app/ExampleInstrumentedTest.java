@@ -1,4 +1,4 @@
-package com.example.app;
+package com.alejandra.app;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
