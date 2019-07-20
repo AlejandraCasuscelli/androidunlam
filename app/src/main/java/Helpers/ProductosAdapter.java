@@ -46,7 +46,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
         viewHolder.precio.setText("$ " + productoAMostrar.getPrecio());
 
         if(!productoAMostrar.getUrlImagenMiniatura().isEmpty())
-        Picasso.with(context).load(productoAMostrar.getUrlImagenMiniatura()).placeholder(R.drawable.enviogratis).into(viewHolder.imgminiatura);
+        Picasso.with(context).load(productoAMostrar.getUrlImagenMiniatura()).placeholder(R.drawable.placeholder).into(viewHolder.imgminiatura);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

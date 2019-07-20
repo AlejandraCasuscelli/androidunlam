@@ -28,21 +28,22 @@
                 android:id="@+id/contenedorfotos"
                 android:padding="10dp"
                 android:background="#fff">
-                <ImageView
-                    android:id="@+id/fotoProducto"
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerFotos"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerInParent="true"
-                    android:scaleType="centerCrop"
-                    />
+                    android:scaleType="centerCrop"/>
 
                 <TextView
                     android:id="@+id/cantidadfotos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#34243324"/>
+                    android:background="#34243324"
+                    android:text="10 fotos"/>
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="wrap_content"

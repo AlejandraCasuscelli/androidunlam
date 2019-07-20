@@ -3,6 +3,8 @@ package com.alejandra.app;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +14,10 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
+import Helpers.ImagenesAdapter;
+import Modelo.Imagen;
 import Modelo.Producto;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,9 +26,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DetalleProductoActivity extends AppCompatActivity {
-
-    @BindView(R.id.fotoProducto)
-    ImageView fotoProducto;
 
     @BindView(R.id.cantidadfotos)
     TextView cantidadfotos;
@@ -50,12 +53,26 @@ public class DetalleProductoActivity extends AppCompatActivity {
 
     Producto prod;
 
+    private ImagenesAdapter adapter;
+
+    @BindView(R.id.recyclerFotos)
+    RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_producto);
         ButterKnife.bind(this);
         CargarDetalleDeProducto(this, getIntent().getExtras().getString("idproducto"));
+    }
+
+    private void ConfigurarRecyclerView(List<Imagen> imagenes) {
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new ImagenesAdapter(imagenes, this);
+        recyclerView.setAdapter(adapter);
     }
 
     private void CargarDetalleDeProducto(final Context context, String idProducto){
@@ -75,7 +92,7 @@ public class DetalleProductoActivity extends AppCompatActivity {
                 precio.setText("$ " + prod.getPrecio().toString());
                 stock.setText("Cantidad: " + prod.getStock().toString());
                 textoGarantia.setText(prod.getGarantia());
-                Picasso.with(context).load(prod.getImagenes().get(0).getUrl()).into(fotoProducto);
+                ConfigurarRecyclerView(prod.getImagenes());
                 contenedorDetalle.setVisibility(View.VISIBLE);
             }
             loading.setVisibility(View.GONE);
